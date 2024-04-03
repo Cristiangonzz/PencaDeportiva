@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.271090-alpha">
+  <PropertyGroup>
+    <StartupCommand>npm start</StartupCommand>
+    <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Folder where production build objects will be placed -->
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\angularapp1.client\</BuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\application\use-case\" />
+    <Folder Include="src\app\domain\entity\" />
+    <Folder Include="src\app\domain\interfaces\" />
+    <Folder Include="src\app\domain\services\" />
+    <Folder Include="src\app\guards\" />
+    <Folder Include="src\app\intraestructure\delegate\" />
+    <Folder Include="src\app\intraestructure\dto\create\" />
+    <Folder Include="src\app\intraestructure\dto\get\" />
+    <Folder Include="src\app\intraestructure\services\" />
+    <Folder Include="src\app\presentation\home\" />
+    <Folder Include="src\app\presentation\login\" />
+    <Folder Include="src\app\presentation\share\" />
+  </ItemGroup>
+</Project>
