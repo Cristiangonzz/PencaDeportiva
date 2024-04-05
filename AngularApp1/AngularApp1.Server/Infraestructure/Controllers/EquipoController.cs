@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AngularApp1.Server.Infraestructure.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class EquipoController : ControllerBase
     {
 
@@ -37,7 +37,7 @@ namespace AngularApp1.Server.Infraestructure.Controllers
 
                 Equipo _productoCreado = await _equipoRepositorio.Create(_producto);
 
-                if (_productoCreado.Id != null)
+                if (_productoCreado.Name != null)
                     _ResponseDTO = new ResponseDTO<EquipoDTO>() { status = true, msg = "ok", value = _mapper.Map<EquipoDTO>(_productoCreado) };
                 else
                     _ResponseDTO = new ResponseDTO<EquipoDTO>() { status = false, msg = "No se pudo crear el producto" };
@@ -52,7 +52,6 @@ namespace AngularApp1.Server.Infraestructure.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
         public async Task<IActionResult> ListGetAll()
         {
 
@@ -71,7 +70,7 @@ namespace AngularApp1.Server.Infraestructure.Controllers
                 else
                     _ResponseDTO = new ResponseDTO<List<EquipoDTO>>() { status = false, msg = "Lista Vacia", value = null };
 
-                return StatusCode(StatusCodes.Status200OK, _ResponseDTO);
+                return StatusCode(StatusCodes.Status200OK, ListaEquipos);
             }
             catch (Exception ex)
             {

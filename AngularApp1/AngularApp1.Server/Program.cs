@@ -23,8 +23,22 @@ builder.Services.AddScoped<IPartidoRepository, PartidoRepository>();
 builder.Services.AddScoped<ITablaRepository, TablaRepository>();
 builder.Services.AddScoped<ICampionatoRepository, CampionatoRepository>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularLocalhost",
+        builder =>
+        {
+            builder.WithOrigins("*")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod()
+                   .WithExposedHeaders("Access-Control-Allow-Origin"); // Agregar este método para exponer el encabezado CORS.
+        });
+});
 var app = builder.Build();
 
+
+
+app.UseCors("AllowAngularLocalhost");
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
@@ -34,6 +48,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseRouting();
+
+// Otro middleware
+// ...
+
 
 app.UseHttpsRedirection();
 

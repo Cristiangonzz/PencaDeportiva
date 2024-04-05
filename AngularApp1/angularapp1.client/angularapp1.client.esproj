@@ -13,12 +13,9 @@
     <Folder Include="src\app\domain\interfaces\" />
     <Folder Include="src\app\domain\services\" />
     <Folder Include="src\app\guards\" />
-    <Folder Include="src\app\intraestructure\delegate\" />
-    <Folder Include="src\app\intraestructure\dto\create\" />
+    <Folder Include="src\app\intraestructure\delegate\delegate-equipo\" />
     <Folder Include="src\app\intraestructure\dto\get\" />
-    <Folder Include="src\app\intraestructure\services\" />
     <Folder Include="src\app\presentation\home\" />
     <Folder Include="src\app\presentation\login\" />
-    <Folder Include="src\app\presentation\share\" />
   </ItemGroup>
 </Project>
