@@ -17,17 +17,17 @@ export class EquipoImplentationService extends EquipoService {
     super();
   }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE',
-      'Access-Control-Allow-Origin': '*',
-    }),
-  };
+  //httpOptions = {
+  //  headers: new HttpHeaders({
+  //    'Access-Control-Allow-Headers': 'Content-Type',
+  //    'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE',
+  //    'Access-Control-Allow-Origin': '*',
+  //  }),
+  //};
 
   getAll(): Observable<EquipoDomainEntity[]> {
     return this.http.get<EquipoDomainEntity []>(
-      `${this.URL}/Equipo`, this.httpOptions
+      `${this.URL}/Equipo`
     );
   }
   create(data: CreateEquipoDto): Observable<EquipoDomainEntity> {

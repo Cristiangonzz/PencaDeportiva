@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ListAllComponent implements OnInit, AfterViewInit {
   delegateCategoria = equipoUseCaseProviders;
   equipos!: EquipoDomainEntity[];
+  nombres!: string[];
   mostrarComponente: boolean = false;
   //@Input() crearCategoria!: boolean;
   //sweet = new SweetAlert();
@@ -33,8 +34,10 @@ export class ListAllComponent implements OnInit, AfterViewInit {
       .useFactory(this.equipoService)
       .statusEmmit.subscribe({
         next: (value: EquipoDomainEntity[]) => {
-          //this.categorias = value.map((x) => x.nombre);
+          
           this.equipos = value;
+          console.log(this.equipos);
+          console.log(value);
 
         },
       });
