@@ -1,20 +1,20 @@
 import { IEquipoDomain } from "../interfaces/IEquipoDomain";
 
 export class EquipoDomainEntity implements IEquipoDomain {
-  EquipoId?: string;
-  Name?: string;
-  Activo: boolean;
+  id?: string;
+  name?: string;
+  activo?: boolean;
 
 
   constructor(
-    EquipoId?: string,
+    id?: string,
 
-    Name?: string,
-    Activo?: boolean,
+    name?: string,
+    activo?: boolean,
    
   ) {
-    this.EquipoId = EquipoId as string;
-    this.Name = Name as string;
-    this.Activo = Activo as boolean;
+    this.id = id as string;
+    this.name = name as string;
+    this.activo = activo as boolean;
   }
 }

@@ -4,29 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IndexComponent } from './presentation/home/index/index.component';
-import { NavbarComponent } from './presentation/share/navbar/navbar.component';
-import { SidebarComponent } from './presentation/share/sidebar/sidebar.component';
-import { SigninComponent } from './presentation/login/signin/signin.component';
-import { FooterComponent } from './presentation/share/footer/footer.component';
-import { ListAllComponent } from './presentation/equipo/list-all/list-all.component';
-import { SearchComponent } from './presentation/share/shearch/search.component';
 import { InfraestructureModule } from './intraestructure/infraestructure.module';
+import { HomeModule } from './presentation/home/home.module';
+import { shareModule } from './presentation/share/share.module';
+import { LoginModule } from './presentation/login/login.module';
+import { EquipoModule } from './presentation/equipo/equipo.module';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    IndexComponent,
-    NavbarComponent,
-    SidebarComponent,
-    SigninComponent,
-    FooterComponent,
-    ListAllComponent,
-    SearchComponent
+    AppComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, InfraestructureModule
+    AppRoutingModule, InfraestructureModule, HomeModule, shareModule, LoginModule, EquipoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

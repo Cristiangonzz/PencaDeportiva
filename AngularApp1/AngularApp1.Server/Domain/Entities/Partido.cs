@@ -3,11 +3,11 @@
     public class Partido
     {
 
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public int GolLocal { get; set; } = 0;
-        public int GolVisitante { get; set; } = 0;
-        public List<Equipo> Equipos { get; set; }
+        public Guid id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public int golLocal { get; set; } = 0;
+        public int golVisitante { get; set; } = 0;
+        public List<Equipo> equipos { get; set; }
     }
 }

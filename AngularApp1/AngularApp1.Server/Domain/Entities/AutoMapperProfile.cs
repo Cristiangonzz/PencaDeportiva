@@ -8,11 +8,12 @@ namespace AngularApp1.Server.Domain.Entities
 
         public AutoMapperProfile()
         {
-            CreateMap<Equipo, EquipoDTO>(); // Mapeo de Equipo a EquipoDTO
-            CreateMap<EquipoDTO, Equipo>(); // Mapeo de Equipo a EquipoDTO
-
-            //CreateMap<Clasificacion, ClasificacionDTO>()
-            //    .ForMember(dest => dest.Equipo, opt => opt.MapFrom(src => src.Equipo)); // Mapeo de Clasificacion a ClasificacionDTO, incluyendo los detalles del Equipo
+            CreateMap<Equipo, EquipoDTO>()
+                .ForMember(dest => dest.name, opt => opt.MapFrom(src => src.name))
+                .ForMember(dest => dest.activo, opt => opt.MapFrom(src => src.activo));// Mapeo de Equipo a EquipoDTO
+            CreateMap<EquipoDTO, Equipo>()
+                .ForMember(dest => dest.name, opt => opt.MapFrom(src => src.name))
+                .ForMember(dest => dest.activo, opt => opt.MapFrom(src => src.activo));// Mapeo de Equipo a EquipoDTO
         }
     }
 }

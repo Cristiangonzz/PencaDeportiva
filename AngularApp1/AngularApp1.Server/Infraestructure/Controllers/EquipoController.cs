@@ -37,7 +37,7 @@ namespace AngularApp1.Server.Infraestructure.Controllers
 
                 Equipo _productoCreado = await _equipoRepositorio.Create(_producto);
 
-                if (_productoCreado.Name != null)
+                if (_productoCreado.name != null)
                     _ResponseDTO = new ResponseDTO<EquipoDTO>() { status = true, msg = "ok", value = _mapper.Map<EquipoDTO>(_productoCreado) };
                 else
                     _ResponseDTO = new ResponseDTO<EquipoDTO>() { status = false, msg = "No se pudo crear el producto" };
@@ -70,7 +70,7 @@ namespace AngularApp1.Server.Infraestructure.Controllers
                 else
                     _ResponseDTO = new ResponseDTO<List<EquipoDTO>>() { status = false, msg = "Lista Vacia", value = null };
 
-                return StatusCode(StatusCodes.Status200OK, ListaEquipos);
+                return StatusCode(StatusCodes.Status200OK, _ResponseDTO);
             }
             catch (Exception ex)
             {
@@ -85,18 +85,18 @@ namespace AngularApp1.Server.Infraestructure.Controllers
 
         [HttpPut]
         [Route("Editar/{Id:Guid}")]
-        public async Task<IActionResult> Editar([FromBody] EquipoDTO request, [FromRoute] Guid Id)
+        public async Task<IActionResult> Editar([FromBody] EquipoDTO request, [FromRoute] Guid id)
         {
             ResponseDTO<bool> _ResponseDTO = new ResponseDTO<bool>();
             try
             {
                 Equipo _equipo = _mapper.Map<Equipo>(request);
-                Equipo _equipoParaEditar = await _equipoRepositorio.Obtener(u => u.Id == Id);
+                Equipo _equipoParaEditar = await _equipoRepositorio.Obtener(u => u.id == id);
 
                 if (_equipoParaEditar != null)
                 {
 
-                    _equipoParaEditar.Name = _equipo.Name;
+                    _equipoParaEditar.name = _equipo.name;
                     
 
                     bool respuesta = await _equipoRepositorio.Update(_equipoParaEditar);

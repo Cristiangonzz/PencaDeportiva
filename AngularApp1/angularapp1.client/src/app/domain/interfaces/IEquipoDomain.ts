@@ -1,6 +1,6 @@
 
 export interface IEquipoDomain {
-  EquipoId?: string;
-  Name?: string;
-  Activo: boolean;
+  id?: string;
+  name?: string;
+  activo?: boolean;
 }

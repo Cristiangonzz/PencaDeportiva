@@ -1,3 +1,3 @@
 export interface CreateEquipoDto {
-  nombre: string;
+  name: string;
 }

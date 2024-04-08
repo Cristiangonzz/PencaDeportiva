@@ -1,3 +1,3 @@
 export interface UpdateEquipoDto {
-  nombre: string;
+  name: string;
 }

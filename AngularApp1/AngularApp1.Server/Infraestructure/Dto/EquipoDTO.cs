@@ -3,9 +3,7 @@
     public class EquipoDTO
     {
 
-        public string Name { get; set; }
-        public bool Activo { get; set; }
-
-        //Algo para git
+        public string name { get; set; }
+        public bool activo { get; set; }
     }
 }
