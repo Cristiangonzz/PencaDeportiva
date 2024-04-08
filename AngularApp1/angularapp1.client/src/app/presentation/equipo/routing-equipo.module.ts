@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { ListAllComponent } from './list-all/list-all.component';
 
-
-
+const routes: Routes = [
+  {
+    path: '',
+    children: [
+      { path: ``, component: ListAllComponent },
+      { path: `**`, redirectTo: '' },
+    ]
+  }
+]
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class RoutingEquipoModule { }
