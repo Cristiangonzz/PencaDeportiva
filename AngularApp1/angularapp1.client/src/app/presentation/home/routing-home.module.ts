@@ -6,10 +6,10 @@ import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
   {
-    path: 'index',
+    path: '',
     children: [
-      { path: `index`, component: IndexComponent/*, canActivate: [BackGuard]*/, },
-      { path: `**`, redirectTo: 'index' },
+      { path: ``, component: IndexComponent/*, canActivate: [BackGuard]*/, },
+      { path: `**`, redirectTo: '' },
     ]
   }
 ]

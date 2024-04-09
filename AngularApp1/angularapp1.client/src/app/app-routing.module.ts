@@ -5,7 +5,7 @@ const routes: Routes = [
 
    {
     path: '',
-    redirectTo: 'List',
+    redirectTo: 'index',
     pathMatch: 'full',
   },
   {

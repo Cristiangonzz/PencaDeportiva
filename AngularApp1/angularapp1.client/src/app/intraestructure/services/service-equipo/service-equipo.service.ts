@@ -37,8 +37,11 @@ export class EquipoImplentationService extends EquipoService {
   }
 
   create(data: CreateEquipoDto): Observable<ResponseDomainEntity<EquipoDomainEntity>> {
-    throw new Error('Method not implemented.');
+    return this.http.post<ResponseDomainEntity<EquipoDomainEntity>>(
+      `${this.URL}/Equipo/Crear`,data);
   }
+
+
   update(id: string, entity: UpdateEquipoDto): Observable<ResponseDomainEntity<EquipoDomainEntity>> {
     throw new Error('Method not implemented.');
   }
