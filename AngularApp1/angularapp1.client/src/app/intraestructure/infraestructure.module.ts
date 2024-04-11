@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { equipoUseCaseProviders } from './delegate/delegate-equipo/delegateEquipo';
 import { EquipoService } from '../domain/services/EquipoService';
 import { EquipoImplentationService } from './services/service-equipo/service-equipo.service';
+import { MatchService } from '../domain/services/MatchService ';
+import { matchUseCaseProviders } from './delegate/delegate-match/delegateMatch';
 
 
 
@@ -11,8 +13,12 @@ import { EquipoImplentationService } from './services/service-equipo/service-equ
   declarations: [],
   imports: [CommonModule, HttpClientModule],
   providers: [
-    ...Object.values(equipoUseCaseProviders),
-    { provide: EquipoService, useClass: EquipoImplentationService }
+    ...Object.values(equipoUseCaseProviders), 
+    ...Object.values(matchUseCaseProviders), 
+                     
+    { provide: EquipoService, useClass: EquipoImplentationService },
+    { provide: MatchService, useClass: EquipoImplentationService }
+
    ]
 })
 export class InfraestructureModule { }

@@ -20,6 +20,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./presentation/equipo/equipo.module').then((m) => m.EquipoModule),
   },
+
+  {
+    path: 'Match',
+    //canActivate: [BackGuard],
+    loadChildren: () =>
+      import('./presentation/match/match.module').then((m) => m.MatchModule),
+  },
   {
     path: '**',
     redirectTo: 'List',

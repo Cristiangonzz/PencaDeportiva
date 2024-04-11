@@ -4,12 +4,15 @@ using AngularApp1.Server.infraestructure.db;
 using AngularApp1.Server.Infraestructure.Repository;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddHttpClient();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -23,17 +26,6 @@ builder.Services.AddScoped<IPartidoRepository, PartidoRepository>();
 builder.Services.AddScoped<ITablaRepository, TablaRepository>();
 builder.Services.AddScoped<ICampionatoRepository, CampionatoRepository>();
 
-//var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
-
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy(name: MyAllowSpecificOrigins,
-//                      policy =>
-//                      {
-//                          policy.WithOrigins("http://localhost:4200");
-//                      });
-//});
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularLocalhost",
@@ -42,11 +34,12 @@ builder.Services.AddCors(options =>
             builder.WithOrigins("*")
                    .AllowAnyHeader()
                    .AllowAnyMethod()
+                   .AllowAnyOrigin()
+                   .WithExposedHeaders("Content-Length", "Content-Type")
                    .WithExposedHeaders("Access-Control-Allow-Origin"); // Agregar este método para exponer el encabezado CORS.
         });
 });
 var app = builder.Build();
-
 
 
 app.UseDefaultFiles();
@@ -63,12 +56,13 @@ app.UseRouting();
 
 
 
+
 app.UseCors("AllowAngularLocalhost");
 // Otro middleware
 // ...
-
-
 app.UseHttpsRedirection();
+
+
 
 app.UseAuthorization();
 
